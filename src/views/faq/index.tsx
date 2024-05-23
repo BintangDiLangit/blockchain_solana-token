@@ -1,39 +1,39 @@
 export const FaqView = ({}) => {
   const questions = [
     {
-      question: " Who are produces sit pleasure?",
+      question: " What is Solana?",
       answer:
-        " Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        " Solana is a high-performance blockchain supporting fast transactions and low fees, designed to scale applications for global adoption.",
       id: "faq-1",
     },
     {
-      question: " What is quo voluptas nulla pariatur?",
+      question: " How can I generate a Solana token?",
       answer:
-        "Vivamus elementum semper nisi. Aenean vulputate eleifendtellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+        "Our platform provides user-friendly tools to create and manage your own Solana tokens easily without needing extensive technical knowledge.",
       id: "faq-2",
     },
     {
-      question: "How to do transactions using iMbank?",
+      question: " What is an airdrop and how can I send one?",
       answer:
-        " Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        " An airdrop is a method of distributing tokens to multiple wallet addresses. You can use our platform to send airdrops quickly and efficiently.",
       id: "faq-3",
     },
     {
-      question: " hot to activate iMbank service?",
+      question: " How does Solana ensure fast transaction speeds?",
       answer:
-        "Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        "Solana uses a unique combination of Proof of History (PoH) and other innovative technologies o achieve high throughput and low latency.",
       id: "faq-4",
     },
     {
-      question: "  Who is eligible to open iMbank account?",
+      question: "  What are the benefits of using Solana for my project?",
       answer:
-        "Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        "Solana offers high scalability, low transaction costs, and fast processing times, making it ideal for decentralized applications and large-scale projects.",
       id: "faq-5",
     },
     {
-      question: "wil i be given a passbook?",
+      question: " Is it safe to use your platform for transactions?",
       answer:
-        "Aenean commodo ligula eget dolor. Aenean massa. Cum sociisnatoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+        "Yes, our platform is built on the secure and robust Solana network, ensuring your transactions and token management are safe and reliable.",
       id: "faq-6",
     },
   ];
@@ -44,11 +44,11 @@ export const FaqView = ({}) => {
         <div className="mb-10 flex items-end justify-between">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-3xl font-medium capitalize text-white">
-              Any Question
+              Frequently Asked Questions
             </h2>
             <p className="text-default-200 text-sm font-medium">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-              fuga unde vel dolor et dicta ex quam, cum laborum culpa!
+              Find answers to commonly asked questions about Solana and our
+              platform.
             </p>
           </div>
         </div>
@@ -84,8 +84,8 @@ export const FaqView = ({}) => {
                       {question.answer}
                     </p>
                     <p className="text-default-300 text-small font-medium">
-                      Have you ever wanted to become blockchain developer check
-                      the pro NFT Marketplace Course
+                      If you are interested in becoming a blockchain developer,
+                      just reach out me.
                     </p>
                   </div>
                 </div>

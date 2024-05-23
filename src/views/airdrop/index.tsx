@@ -107,7 +107,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
               />
 
               {/* Second */}
-              <div className="lg-ps-=0 flex h-full flex-col p-10">
+              <div className="lg-ps-0 flex h-full flex-col p-10">
                 <div className="pb-10">
                   <a className="flex">
                     <img

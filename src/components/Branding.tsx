@@ -14,7 +14,7 @@ export const Branding = ({ image, title, message }) => {
             <div className="flex h-full items-end justify-center">
               <div className="text-start p-6">
                 <h5 className="mb-3 text-xl font-bold text-white">
-                  Solana Token Creator
+                  Solana Token Generator
                   <br />
                   {title}
                 </h5>

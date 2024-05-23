@@ -9,6 +9,7 @@ export const ToolView = ({
   setOpenCreateModal,
   setOpenSendTransaction,
   setOpenTokenMetadData,
+  setOpenComingSoon,
 }) => {
   const tools = [
     {
@@ -39,17 +40,17 @@ export const ToolView = ({
     {
       name: "Buddy Token",
       icon: <MdGeneratingTokens />,
-      function: setOpenSendTransaction,
+      function: setOpenComingSoon,
     },
     {
       name: "Top Tokens",
       icon: <MdGeneratingTokens />,
-      function: setOpenSendTransaction,
+      function: setOpenComingSoon,
     },
     {
       name: "Solana Explore",
       icon: <MdGeneratingTokens />,
-      function: setOpenContact,
+      function: setOpenComingSoon,
     },
   ];
   return (
@@ -65,9 +66,8 @@ export const ToolView = ({
                 Solana Powerfull Tools
               </h2>
               <p className="text-default-200 text-sm font-medium">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Reprehenderit,br voluptatum officia omnis soluta possimus, est
-                perferendis nisi nemo repudiandae neque.
+                Powerful tools for generating Solana tokens, sending airdrops,
+                and managing transactions.
               </p>
             </div>
           </div>
@@ -120,6 +120,7 @@ export const ToolView = ({
               className="hover-bg-primary-hover
             bg-primary inline-flex items-center justify-center gap-2 rounded-full
             px-6 py-2 text-white transition-all duration-500"
+              onClick={() => setOpenComingSoon(true)}
             >
               More Tools
               <i>

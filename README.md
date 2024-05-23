@@ -1,23 +1,21 @@
+# Solana Token Generator Dapp
 
-# Solana Token Creator Dapp
+Build And Deploy Solana Token Generator Dapp Using TypeScripts, NextJs, Tailwind on MainNet & Devnet
 
-Build And Deploy Solana Token Creator Dapp Using TypeScripts, NextJs, Tailwind on MainNet & Devnet
-
-
-Build your first Solana Token Creator Dapp Using Nestjs, Tyscript as frontend and Solana SDK with 100% decentralization, In the source code file you will get the complete source code of Solana Token Creator Dapp, which you can see in the tutorial
+Build your first Solana Token Generator Dapp Using Nestjs, Tyscript as frontend and Solana SDK with 100% decentralization, In the source code file you will get the complete source code of Solana Token Generator Dapp, which you can see in the tutorial
 
 ## Project Overview
 
-![alt text](https://www.daulathussain.com/wp-content/uploads/2024/01/Creat-Solana-Token-Creator-Dapp-Full-stack-solana-project.jpg)
+![alt text](https://www.daulathussain.com/wp-content/uploads/2024/01/Creat-Solana-Token-Generator-Dapp-Full-stack-solana-project.jpg)
 
 ## Instruction
 
 Kindly follow the following Instructions to run the project in your system and install the necessary requirements
 
-
 - [Final Source Code](https://www.theblockchaincoders.com/sourceCode/create-solana-token-creator-dapp)
 
 #### Setup Video
+
 - [Final Code Setup video](https://youtu.be/TuDSjk2GSms?si=IyAakYYgMANQcHJJ)
 
 ```https://code.visualstudio.com/download
@@ -42,7 +40,6 @@ Kindly follow the following Instructions to run the project in your system and i
 ```https://github.com/daulathussain/Airdrop-Crypto-Starter-File
   GET: Project Starter File Download
 ```
-
 
 All you need to follow the complete project and follow the instructions which are explained in the tutorial by Daulat
 
@@ -80,13 +77,11 @@ If you download the final source code then you can follow the following instruct
 ## Important Links
 
 - [Get Pro Blockchain Developer Course](https://www.theblockchaincoders.com/pro-nft-marketplace)
-- [Support Creator](https://bit.ly/Support-Creator)
+- [Support Generator](https://bit.ly/Support-Generator)
 - [All Projects Source Code](https://www.theblockchaincoders.com/SourceCode)
-
 
 ## Authors
 
 - [@theblockchaincoders.com](https://www.theblockchaincoders.com/)
 - [@consultancy](https://www.theblockchaincoders.com/consultancy)
 - [@youtube](https://www.youtube.com/@daulathussain)
-

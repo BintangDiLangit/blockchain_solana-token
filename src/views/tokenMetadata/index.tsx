@@ -99,7 +99,7 @@ export const TokenMetadata = ({ setOpenTokenMetadData }) => {
 
               {/* Second */}
               {!loaded ? (
-                <div className="lg-ps-=0 flex h-full flex-col p-10">
+                <div className="lg-ps-0 flex h-full flex-col p-10">
                   <div className="pb-10">
                     <a className="flex">
                       <img
@@ -148,7 +148,7 @@ export const TokenMetadata = ({ setOpenTokenMetadData }) => {
                   </div>
                 </div>
               ) : (
-                <div className="lg-ps-=0 flex h-full flex-col p-10">
+                <div className="lg-ps-0 flex h-full flex-col p-10">
                   <div className="pb-10">
                     <a className="flex">
                       <img

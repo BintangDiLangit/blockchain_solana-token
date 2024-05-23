@@ -17,8 +17,8 @@ export const AppBar: FC = (props) => {
       link: "#features",
     },
     {
-      name: "Price",
-      link: "#price",
+      name: "Support",
+      link: "#support",
     },
     {
       name: "Faq",
@@ -33,8 +33,8 @@ export const AppBar: FC = (props) => {
           <nav>
             <a href="/" className="logo">
               <img src="assets/images/logo1.png" className="h-10" alt="logo" />
+              <p className="text-primary text-sm">@bintangmfhd</p>
             </a>
-
             <div
               className="ms-auto flex 
             items-center px-2.5 lg:hidden"

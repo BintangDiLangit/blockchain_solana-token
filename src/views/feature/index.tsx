@@ -15,29 +15,25 @@ export const FeatureView = ({
     {
       name: "Token Generator",
       icon: <MdGeneratingTokens />,
-      description:
-        "Start working with solana token creator, It allow you to create solana token by creating, deploying, airdrop, transfering and updating token",
+      description: "Generate your own token instantly.",
       function: setOpenCreateModal,
     },
     {
       name: "Get Airdrop",
       icon: <MdToken />,
-      description:
-        "Start working with solana token creator, It allow you to create solana token by creating, deploying, airdrop, transfering and updating token",
+      description: "Get free tokens by participating in our airdrop program.",
       function: setOpenAirdrop,
     },
     {
-      name: "Transfer Sol",
+      name: "Donation Sol",
       icon: <RiTokenSwapFill />,
-      description:
-        "Start working with solana token creator, It allow you to create solana token by creating, deploying, airdrop, transfering and updating token",
+      description: "Donate SOL tokens to support the project.",
       function: setOpenSendTransaction,
     },
     {
       name: "Token Metadata",
       icon: <RxTokens />,
-      description:
-        "Start working with solana token creator, It allow you to create solana token by creating, deploying, airdrop, transfering and updating token",
+      description: "Check your token metadata by entering the token address.",
       function: setOpenTokenMetadData,
     },
   ];
@@ -48,11 +44,14 @@ export const FeatureView = ({
           <div className="mb-10 flex items-end justify-between">
             <div className="mx-auto max-2-2xl text-center">
               <h2 className="mb-4 text-3xl font-medium capitalize text-white">
-                Choose Solana Blockchain generator
+                Our Featured Tools
               </h2>
               <p className="text-default-200 text-sm font-medium">
-                Now you can create solana token <br />
-                to without code instantly
+                Start working with solana token generator with our features, It
+                allow you to create solana token
+                <br />
+                by creating, deploying, airdrop, transfering and updating token
+                <br />
               </p>
             </div>
           </div>

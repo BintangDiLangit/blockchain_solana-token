@@ -305,7 +305,7 @@ export const CreateView = ({ setOpenCreateModal }) => {
                 <div className="lg:ps-0 flex flex-col p-10">
                   <div className="pb-6 my-auto">
                     <h4 className="mb-4 text-2xl font-bold text-white">
-                      Solana Token Creator
+                      Solana Token Generator
                     </h4>
                     <p className="text-default-300 mb-8 max-w-sm">
                       Kindly provide all the details about your token
@@ -386,7 +386,7 @@ export const CreateView = ({ setOpenCreateModal }) => {
                   message="Kindly provide all the details about your token"
                 />
                 {/* Second */}
-                <div className="lg-ps-=0 flex h-full flex-col p-10">
+                <div className="lg-ps-0 flex h-full flex-col p-10">
                   <div className="pb-10">
                     <a className="flex">
                       <img
