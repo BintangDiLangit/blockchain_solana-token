@@ -27,6 +27,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
   const onClick = useCallback(async () => {
     setLoading(true);
     if (!publicKey) {
+      setLoading(false);
       notify({
         message: "Wallet not connected",
         description: "Please connect your wallet to continue",
@@ -135,7 +136,6 @@ export const AirdropView = ({ setOpenAirdrop }) => {
                   <div className="mb-6 text-center">
                     <button
                       onClick={onClick}
-                      disabled={!publicKey}
                       className="bg-primary-600/90 hover:bg-primary-600
                         group mt-5 inline-flex w-full items-center justify-center rounded-lg px-6 py-2
                         text-white backdrop-blur-2xl transaction-all duration-500"

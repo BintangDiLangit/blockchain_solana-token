@@ -106,13 +106,14 @@ const Notification = ({ type, message, description, txid, onHide }) => {
             <div className="ml-4 flex flex-shrink-0 self-start">
               <button
                 onClick={() => (onHide = {})}
-                className="bg-bkg-2 default-transition text-fgd-3 hover:text-fgd-4 inline-flex rounded-md focus:outline-none"
+                className="bg-bkg-2 default-transition text-fgd-3 hover:text-fgd-4 
+                inline-flex rounded-md focus:outline-none"
               >
                 <span className="sr-only">Close</span>
-                {/* <XIcon className="h-5 w-5" /> */}
               </button>
             </div>
           </div>
+          <XIcon className="h-5 w-5" />
         </div>
       </div>
     </div>

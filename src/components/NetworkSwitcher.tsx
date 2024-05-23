@@ -13,7 +13,9 @@ const NetworkSwitcher: FC = () => {
       <label className="switch">
         <select
           value={networkConfiguration}
-          onChange={(e) => setNetworkConfiguration(e.target.value || "devnet")}
+          onChange={(e) =>
+            setNetworkConfiguration(e.target.value || "mainnet-beta")
+          }
           className="select max-w-xs border-none bg-transparent outline-0"
         >
           <option value="mainnet-beta">main</option>

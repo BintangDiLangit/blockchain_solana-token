@@ -55,8 +55,16 @@ export const CreateView = ({ setOpenCreateModal }) => {
   // Create Token Function
   const createToken = useCallback(
     async (token) => {
-      console.log(token);
-
+      setLoading(true);
+      if (!publicKey) {
+        setLoading(false);
+        notify({
+          message: "Wallet not connected",
+          description: "Please connect your wallet to continue",
+          type: "error",
+        });
+        return;
+      }
       const lamports = await getMinimumBalanceForRentExemptMint(connection);
       const mintKeypair = Keypair.generate();
 

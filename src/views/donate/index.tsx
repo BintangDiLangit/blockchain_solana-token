@@ -35,6 +35,7 @@ export const DonateView = ({ setOpenSendTransaction }) => {
   const onClick = useCallback(async () => {
     setLoading(true);
     if (!publicKey) {
+      setLoading(false);
       notify({
         message: "Wallet not connected",
         description: "Please connect your wallet to continue",
@@ -66,13 +67,14 @@ export const DonateView = ({ setOpenSendTransaction }) => {
         type: "success",
       });
     } catch (error: any) {
+      setLoading(false);
       notify({
         message: "Transaction failed",
         description: `Error: ${error?.message}`,
         type: "error",
         txid: signature,
       });
-      setLoading(false);
+
       return;
     }
   }, [publicKey, connection, sendTransaction, amount]);
@@ -152,7 +154,6 @@ export const DonateView = ({ setOpenSendTransaction }) => {
                   <div className="mb-6 text-center">
                     <button
                       onClick={onClick}
-                      disabled={!publicKey}
                       className="bg-primary-600/90 hover:bg-primary-600
                         group mt-5 inline-flex w-full items-center justify-center rounded-lg px-6 py-2
                         text-white backdrop-blur-2xl transaction-all duration-500"

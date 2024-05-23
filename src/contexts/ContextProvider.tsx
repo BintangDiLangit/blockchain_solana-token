@@ -24,7 +24,6 @@ import {
 } from "./NetworkConfigurationProvider";
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const mainnetEndpoint = process.env.NEXT_PUBLIC_MAINNET_ENDPOINT;
   const { autoConnect } = useAutoConnect();
   const { networkConfiguration } = useNetworkConfiguration();
   const network = networkConfiguration as WalletAdapterNetwork;
@@ -32,7 +31,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   let endpoint;
 
   if (network == "mainnet-beta") {
-    endpoint = mainnetEndpoint;
+    endpoint = process.env.NEXT_PUBLIC_MAINNET_ENDPOINT;
   } else if (network == "devnet") {
     endpoint = originalEndPoint;
   } else {
