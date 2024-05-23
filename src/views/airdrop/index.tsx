@@ -1,11 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import useUserSOLBalanceStore from "stores/useUserSOLBalanceStore";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import {
-  LAMPORTS_PER_SOL,
-  Transaction,
-  TransactionSignature,
-} from "@solana/web3.js";
+import { LAMPORTS_PER_SOL, TransactionSignature } from "@solana/web3.js";
 import { notify } from "utils/notifications";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -129,7 +125,9 @@ export const AirdropView = ({ setOpenAirdrop }) => {
                         group mt-5 inline-flex w-full items-center justify-center rounded-lg px-6 py-2
                         text-white backdrop-blur-2xl transaction-all duration-500"
                     >
-                      <span className="fw-bold">Airdrop 1</span>
+                      <span className="fw-bold">
+                        Click here to get 1 Airdrop
+                      </span>
                     </button>
                     <CloseModal />
                   </div>

@@ -67,11 +67,11 @@ const Home: NextPage = (props) => {
           <AirdropView setOpenAirdrop={setOpenAirdrop} />
         </div>
       )}
-      {/* {openSendTransaction && (
+      {openSendTransaction && (
         <div className="new_loader relative h-full bg-state-900">
           <DonateView setOpenSendTransaction={setOpenSendTransaction} />
         </div>
-      )} */}
+      )}
     </>
   );
 };
