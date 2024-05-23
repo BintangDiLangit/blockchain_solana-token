@@ -1,9 +1,84 @@
-import React from 'react'
+import { WalletAdapterNetwork, WalletError } from "@solana/wallet-adapter-base";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletModalProvider as ReactUIWalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import {
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+  TorusWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
 
-const ContextProvider = () => {
+import {
+  SolletExtensionWalletAdapter,
+  SolletWalletAdapter,
+} from "@solana/wallet-adapter-sollet";
+import { Cluster, clusterApiUrl } from "@solana/web3.js";
+import { FC, ReactNode, useCallback, useMemo } from "react";
+import { AutoConnectProvider, useAutoConnect } from "./AutoConnectProvider";
+import { notify } from "../utils/notifications";
+import {
+  NetworkConfigurationProvider,
+  useNetworkConfiguration,
+} from "./NetworkConfigurationProvider";
+
+const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const { autoConnect } = useAutoConnect();
+  const { networkConfiguration } = useNetworkConfiguration();
+  const network = networkConfiguration as WalletAdapterNetwork;
+  const originalEndPoint = useMemo(() => clusterApiUrl(network), [network]);
+  let endpoint;
+
+  if (network == "mainnet-beta") {
+    endpoint =
+      "https://solana-mainnet.g.alchemy.com/v2/34H630eqKKF7DSfWkJpaYjnZ4t5aAmpZ";
+  } else if (network == "devnet") {
+    endpoint = originalEndPoint;
+  } else {
+    endpoint = originalEndPoint;
+  }
+
+  const wallets = useMemo(
+    () => [
+      new PhantomWalletAdapter(),
+      new SolflareWalletAdapter(),
+      new SolletWalletAdapter(),
+      new SolletExtensionWalletAdapter(),
+      new TorusWalletAdapter(),
+    ],
+    [network]
+  );
+
+  const onError = useCallback((error: WalletError) => {
+    notify({
+      type: "Error",
+      message: error.message ? `${error.name}: ${error.message}` : error.name,
+    });
+    console.log(error);
+  }, []);
+
   return (
-    <div>ContextProvider</div>
-  )
-}
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider
+        wallets={wallets}
+        onError={onError}
+        autoConnect={autoConnect}
+      >
+        <ReactUIWalletModalProvider>{children}</ReactUIWalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
+};
 
-export default ContextProvider
+export const ContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  return (
+    <>
+      <NetworkConfigurationProvider>
+        <AutoConnectProvider>
+          <WalletContextProvider>{children}</WalletContextProvider>
+        </AutoConnectProvider>
+      </NetworkConfigurationProvider>
+    </>
+  );
+};
