@@ -35,7 +35,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   } else if (network == "devnet") {
     endpoint = originalEndPoint;
   } else {
-    endpoint = process.env.NEXT_PUBLIC_LOCALNET_ENDPOINT;
+    endpoint = originalEndPoint;
   }
 
   const wallets = useMemo(

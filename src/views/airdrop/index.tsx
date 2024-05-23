@@ -39,6 +39,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
     let signature: TransactionSignature = "";
     try {
       signature = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
+      setOpenAirdrop(false);
       notify({
         message: "You have successfully requested an airdrop of 1 SOL.",
         txid: signature,

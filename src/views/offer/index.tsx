@@ -3,7 +3,7 @@ import React from "react";
 export const OfferView = ({}) => {
   return (
     <>
-      <section id="features" className="py-20">
+      <section id="price" className="py-20">
         <div className="container">
           <div className="mb-10 flex items-end justify-between">
             <div className="mx-auto max-w-2xl text-center">

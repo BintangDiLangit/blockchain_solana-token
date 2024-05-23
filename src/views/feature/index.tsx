@@ -43,7 +43,7 @@ export const FeatureView = ({
   ];
   return (
     <>
-      <section className="py-20">
+      <section className="py-20" id="features">
         <div className="container">
           <div className="mb-10 flex items-end justify-between">
             <div className="mx-auto max-2-2xl text-center">

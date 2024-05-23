@@ -75,7 +75,8 @@ export const FaqView = ({}) => {
                 <div
                   id={`faq-accordion-${index + 1}`}
                   className="hs-accordion-content 
-                w-full overflow-huidden transition-[height] duration-300"
+                w-full overflow-hidden transition-[height] duration-300"
+                  style={{ display: "none" }}
                   aria-labelledby={question.id}
                 >
                   <div className="px-6 pb-4 pt-0">

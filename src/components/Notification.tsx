@@ -6,11 +6,9 @@ import {
 } from "@heroicons/react/outline";
 import { XIcon } from "@heroicons/react/solid";
 import useNotificationStore from "stores/useNotificationStore";
-import { useConnection } from "@solana/wallet-adapter-react";
 import { useNetworkConfiguration } from "contexts/NetworkConfigurationProvider";
 
 import NotificationSVG from "./SVG/NotificationSVG";
-import { clearInterval } from "timers";
 
 const NotificationList = () => {
   const { notifications, set: setNotificationStore } = useNotificationStore(
@@ -47,7 +45,6 @@ const NotificationList = () => {
 };
 
 const Notification = ({ type, message, description, txid, onHide }) => {
-  const { connection } = useConnection();
   const { networkConfiguration } = useNetworkConfiguration();
 
   useEffect(() => {
@@ -56,13 +53,13 @@ const Notification = ({ type, message, description, txid, onHide }) => {
     }, 8000);
 
     return () => {
-      clearTimeout(id);
+      clearInterval(id);
     };
   }, [onHide]);
 
   return (
     <div
-      className="bg-bkg=1 pointer-events=auto z-50 
+      className="bg-bkg-1 pointer-events-auto z-50 
     mx-4 mt-2 mb-12 w-full 
     max-w-sm overflow-hidden
     rounded-md bg-[#0a1023] p-2 shadow-lg right-1"
@@ -98,22 +95,22 @@ const Notification = ({ type, message, description, txid, onHide }) => {
                   <NotificationSVG />
                   <div className="mx-4 flex">
                     {txid.slice(0, 8)}....
-                    {txid.slice(txid.length - 8)}....
+                    {txid.slice(txid.length - 8)}
                   </div>
                 </a>
               </div>
             ) : null}
-            <div className="ml-4 flex flex-shrink-0 self-start">
-              <button
-                onClick={() => (onHide = {})}
-                className="bg-bkg-2 default-transition text-fgd-3 hover:text-fgd-4 
-                inline-flex rounded-md focus:outline-none"
-              >
-                <span className="sr-only">Close</span>
-              </button>
-            </div>
           </div>
-          <XIcon className="h-5 w-5" />
+          <div className="ml-4 flex flex-shrink-0 self-start">
+            <button
+              onClick={() => onHide()}
+              className="bg-bkg-2 default-transition text-fgd-3 hover:text-fgd-4 
+                inline-flex rounded-md focus:outline-none"
+            >
+              <span className="sr-only">Close</span>
+              <XIcon className="h-5 w-5 mt-1.5" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
