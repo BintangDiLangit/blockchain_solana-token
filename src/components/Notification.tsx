@@ -56,7 +56,7 @@ const Notification = ({ type, message, description, txid, onHide }) => {
     }, 8000);
 
     return () => {
-      clearInterval(id);
+      clearTimeout(id);
     };
   }, [onHide]);
 
@@ -72,13 +72,11 @@ const Notification = ({ type, message, description, txid, onHide }) => {
           <div className="flex-shrink-0">
             {type === "success" ? (
               <CheckCircleIcon className="h-8 w-8 text-success mr-1" />
-            ) : null}
-            {type === "info" ? (
+            ) : type === "info" ? (
               <InformationCircleIcon className="h-8 w-8 text-info mr-1" />
-            ) : null}
-            {type === "error" ? (
+            ) : (
               <XCircleIcon className="h-8 w-8 text-error mr-1" />
-            ) : null}
+            )}
           </div>
           <div className="ml-2 w-0 flex-1">
             <div className="text-fgd-1 font-bold">{message}</div>
@@ -111,7 +109,7 @@ const Notification = ({ type, message, description, txid, onHide }) => {
                 className="bg-bkg-2 default-transition text-fgd-3 hover:text-fgd-4 inline-flex rounded-md focus:outline-none"
               >
                 <span className="sr-only">Close</span>
-                <XIcon className="h-5 w-5" />
+                {/* <XIcon className="h-5 w-5" /> */}
               </button>
             </div>
           </div>
