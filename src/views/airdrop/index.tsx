@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import useUserSOLBalanceStore from "stores/useUserSOLBalanceStore";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL, TransactionSignature } from "@solana/web3.js";
@@ -6,6 +6,7 @@ import { notify } from "utils/notifications";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { Branding } from "components/Branding";
+import { ClipLoader } from "react-spinners";
 
 export const AirdropView = ({ setOpenAirdrop }) => {
   const wallet = useWallet();
@@ -15,6 +16,8 @@ export const AirdropView = ({ setOpenAirdrop }) => {
   const balance = useUserSOLBalanceStore((s) => s.balance);
   const { getUserSOLBalance } = useUserSOLBalanceStore();
 
+  const [isLoading, setLoading] = useState(false);
+
   useEffect(() => {
     if (wallet.publicKey) {
       getUserSOLBalance(wallet.publicKey, connection);
@@ -22,6 +25,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance]);
 
   const onClick = useCallback(async () => {
+    setLoading(true);
     if (!publicKey) {
       notify({
         message: "Wallet not connected",
@@ -48,6 +52,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
       });
 
       getUserSOLBalance(publicKey, connection);
+      setLoading(false);
     } catch (error) {
       notify({
         message: "Airdrop failed",
@@ -55,6 +60,7 @@ export const AirdropView = ({ setOpenAirdrop }) => {
         txid: signature,
         type: "error",
       });
+      setLoading(false);
       console.log("Airdrop failed", error?.message, signature);
     }
   }, [publicKey, connection, getUserSOLBalance]);
@@ -75,6 +81,15 @@ export const AirdropView = ({ setOpenAirdrop }) => {
 
   return (
     <>
+      {isLoading && (
+        <div
+          className="absolute top-0 left-0 z-50 
+            flex h-screen w-full items-center justify-center bg-black/[.3]
+            backdrop-blur-[10px]"
+        >
+          <ClipLoader />
+        </div>
+      )}
       <section className="flex w-full items-center py-6 px-0 lg:h-screen lg:p-10">
         <div className="container">
           <div

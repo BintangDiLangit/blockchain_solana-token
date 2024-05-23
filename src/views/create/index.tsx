@@ -18,7 +18,6 @@ import {
 import {
   PROGRAM_ID,
   createCreateMetadataAccountV3Instruction,
-  createCreateMetadataAccountInstruction,
 } from "@metaplex-foundation/mpl-token-metadata";
 import axios from "axios";
 import { notify } from "utils/notifications";
@@ -27,7 +26,6 @@ import { useNetworkConfiguration } from "contexts/NetworkConfigurationProvider";
 
 import { AiOutlineClose } from "react-icons/ai";
 import CreateSVG from "components/SVG/CreateSVG";
-import BrandingSVG from "assets/svg/branding.svg";
 import { Branding } from "components/Branding";
 import { InputView } from "views";
 
@@ -36,7 +34,6 @@ export const CreateView = ({ setOpenCreateModal }) => {
   const { publicKey, sendTransaction } = useWallet();
   const { networkConfiguration } = useNetworkConfiguration();
 
-  const [tokenUri, setTokenUri] = useState("");
   const [tokenMintAddress, setTokenMintAddress] = useState("");
   const [isLoading, setLoading] = useState(false);
 
@@ -142,18 +139,19 @@ export const CreateView = ({ setOpenCreateModal }) => {
         );
 
         setTokenMintAddress(mintKeypair.publicKey.toString());
+        setLoading(false);
         notify({
           message: "Token creation successfully",
           type: "success",
           txid: signature,
         });
       } catch (error) {
+        setLoading(false);
         return notify({
           message: "Token creation failed, try later",
           type: "error",
         });
       }
-      setLoading(false);
     },
     [publicKey, connection, sendTransaction]
   );
@@ -170,6 +168,7 @@ export const CreateView = ({ setOpenCreateModal }) => {
   };
 
   const uploadImagePinata = async (file) => {
+    setLoading(true);
     if (file) {
       try {
         const formData = new FormData();
@@ -188,6 +187,7 @@ export const CreateView = ({ setOpenCreateModal }) => {
         });
 
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+        setLoading(false);
         return ImgHash;
       } catch (error) {
         return notify({
@@ -202,7 +202,6 @@ export const CreateView = ({ setOpenCreateModal }) => {
   const uploadMetadata = async (token: any) => {
     setLoading(true);
     const { name, symbol, description, image } = token;
-    console.log(token);
 
     if (!name || !symbol || !description || !image) {
       notify({
@@ -234,14 +233,15 @@ export const CreateView = ({ setOpenCreateModal }) => {
 
       const metadataUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
 
+      setLoading(false);
       return metadataUrl;
     } catch (error: any) {
+      setLoading(false);
       notify({
         type: "error",
         message: "Upload to Pinnata JSON Failed",
       });
     }
-    setLoading(false);
   };
 
   return (

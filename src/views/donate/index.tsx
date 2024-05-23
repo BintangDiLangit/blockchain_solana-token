@@ -13,6 +13,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { InputView } from "views/input";
 import { Branding } from "components/Branding";
+import { ClipLoader } from "react-spinners";
 
 export const DonateView = ({ setOpenSendTransaction }) => {
   const wallet = useWallet();
@@ -20,6 +21,7 @@ export const DonateView = ({ setOpenSendTransaction }) => {
   const { publicKey, sendTransaction } = useWallet();
 
   const [amount, setAmount] = useState("0.0");
+  const [isLoading, setLoading] = useState(false);
 
   const balance = useUserSOLBalanceStore((s) => s.balance);
   const { getUserSOLBalance } = useUserSOLBalanceStore();
@@ -31,6 +33,7 @@ export const DonateView = ({ setOpenSendTransaction }) => {
   }, [wallet.publicKey, connection, getUserSOLBalance]);
 
   const onClick = useCallback(async () => {
+    setLoading(true);
     if (!publicKey) {
       notify({
         message: "Wallet not connected",
@@ -56,6 +59,7 @@ export const DonateView = ({ setOpenSendTransaction }) => {
       );
 
       signature = await sendTransaction(transaction, connection);
+      setLoading(false);
       notify({
         message: `You have successfully transfer Fund ${amount} SOL to creator.`,
         txid: signature,
@@ -68,6 +72,7 @@ export const DonateView = ({ setOpenSendTransaction }) => {
         type: "error",
         txid: signature,
       });
+      setLoading(false);
       return;
     }
   }, [publicKey, connection, sendTransaction, amount]);
@@ -87,6 +92,15 @@ export const DonateView = ({ setOpenSendTransaction }) => {
 
   return (
     <>
+      {isLoading && (
+        <div
+          className="absolute top-0 left-0 z-50 
+            flex h-screen w-full items-center justify-center bg-black/[.3]
+            backdrop-blur-[10px]"
+        >
+          <ClipLoader />
+        </div>
+      )}
       <section className="flex w-full items-center py-6 px-0 lg:h-screen lg:p-10">
         <div className="container">
           <div
