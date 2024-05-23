@@ -2,7 +2,7 @@
   "name": "solana-token-generator",
   "version": "1.1.0",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
