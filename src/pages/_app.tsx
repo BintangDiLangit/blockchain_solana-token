@@ -3,11 +3,11 @@ import Head from "next/head";
 import { FC } from "react";
 import { ContextProvider } from "../contexts/ContextProvider";
 import { AppBar } from "../components/AppBar";
-import Footer from "../components/Footer";
+import { Footer } from "../components/Footer";
 import Notifications from "../components/Notification";
 
 require("@solana/wallet-adapter-react-ui/styles.css");
-require('../styles/globals.css');
+require("../styles/globals.css");
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -16,10 +16,10 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <title>Solana Token Creator</title>
       </Head>
       <ContextProvider>
-        <Notifications/>
-        <AppBar/>
-        <Component {...pageProps}/>
-        <Footer/>
+        <Notifications />
+        <AppBar />
+        <Component {...pageProps} />
+        <Footer />
       </ContextProvider>
 
       {/* Scripts */}
@@ -33,6 +33,5 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
     </div>
   );
 };
-
 
 export default App;
