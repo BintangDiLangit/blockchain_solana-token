@@ -8,7 +8,7 @@ import {
 } from "react-icons/ti";
 
 export const Footer: FC = () => {
-  const [state, handleSubmit] = useForm("xayrzjjk");
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_KEY);
   if (state.succeeded) {
     return (
       <h1
